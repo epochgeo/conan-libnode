@@ -7,6 +7,7 @@ from conans import ConanFile, tools, AutoToolsBuildEnvironment
 class LibNodeConan(ConanFile):
     name = "libnode"
     version = "14.18.2"
+    #version = "14.16.1"
 
     # Optional metadata
     license = "MIT"
@@ -41,11 +42,12 @@ class LibNodeConan(ConanFile):
             "--openssl-use-def-ca-store",
         ]
 
-
         if self.options.fPIC:
             cflags.append("-fPIC")
         if self.options.shared:
             args.append("--shared")
+
+        cflags.append("-fvisibility=default")
 
         cflags_str = " ".join(cflags)
         
