@@ -16,7 +16,7 @@ build:
 	conan source . --source-folder=build
 
 justinstall:
-	conan install . --install-folder=build
+	conan install . --install-folder=build --build=missing
 
 justbuild:
 	conan build . --build-folder=build --source-folder=build
